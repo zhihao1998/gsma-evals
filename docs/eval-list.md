@@ -10,6 +10,7 @@ This page lists all available benchmarks in Open Telco. Each benchmark tests dif
 | [TeleTables](#teletables) | Knowledge | Medium | Table interpretation tasks |
 | [TeleMath](#telemath) | Math Reasoning | Hard | Mathematical/analytical tasks |
 | [TeleLogs](#telelogs) | Operations | Medium | Network diagnostics use cases |
+| [6G-Bench](#6g-bench) | Standards | Hard | 6G-native telecom reasoning |
 | [3GPP TSG](#3gpp-tsg) | Standards | Medium | Standards document work |
 | [ORANBench](#oranbench) | Standards | Medium | O-RAN architecture and specs |
 | [srsRANBench](#srsranbench) | Code Understanding | Medium | srsRAN codebase comprehension |
@@ -82,6 +83,21 @@ Evaluates the capability of LLMs to generate standard-compliant YAML configurati
 [Dataset](https://huggingface.co/datasets/otellm/gsma-sample-data)
 
 ## Standardization
+
+### 6G-Bench
+
+**[6G-Bench](../src/evals/sixg_bench/)**: AI-native 6G network reasoning benchmark
+
+3,722 multiple-choice questions across 30 tasks aligned with 6G standardization bodies including 3GPP, IETF, ETSI, ITU-T, and the O-RAN Alliance. The benchmark focuses on telecom reasoning under realistic network and standards constraints.
+
+```bash
+uv run inspect eval src/evals/sixg_bench/sixg_bench.py --model <model>
+
+# Filter to a specific task family
+uv run inspect eval src/evals/sixg_bench/sixg_bench.py --model <model> -T task_id=T1
+```
+
+[Paper](https://arxiv.org/abs/2602.08675) | [Dataset](https://huggingface.co/datasets/GSMA/ot-full)
 
 ### 3GPP TSG
 
